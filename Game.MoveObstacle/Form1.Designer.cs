@@ -36,6 +36,7 @@
             obstacleC = new PictureBox();
             obstacleB = new PictureBox();
             obstacleA = new PictureBox();
+            lblLevel = new Label();
             ((System.ComponentModel.ISupportInitialize)PlayerA).BeginInit();
             ((System.ComponentModel.ISupportInitialize)obstacleC).BeginInit();
             ((System.ComponentModel.ISupportInitialize)obstacleB).BeginInit();
@@ -45,19 +46,20 @@
             // lblScore
             // 
             lblScore.AutoSize = true;
-            lblScore.Location = new Point(26, 24);
+            lblScore.Font = new Font("Ubuntu Mono", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblScore.Location = new Point(12, 423);
             lblScore.Name = "lblScore";
-            lblScore.Size = new Size(19, 15);
+            lblScore.Size = new Size(99, 20);
             lblScore.TabIndex = 1;
-            lblScore.Text = "00";
+            lblScore.Text = "Score: 00";
             // 
             // PlayerA
             // 
             PlayerA.BackColor = Color.Transparent;
             PlayerA.Image = Properties.Resources.PlayerA;
-            PlayerA.Location = new Point(136, 411);
+            PlayerA.Location = new Point(87, 272);
             PlayerA.Name = "PlayerA";
-            PlayerA.Size = new Size(54, 44);
+            PlayerA.Size = new Size(102, 82);
             PlayerA.SizeMode = PictureBoxSizeMode.StretchImage;
             PlayerA.TabIndex = 4;
             PlayerA.TabStop = false;
@@ -69,16 +71,17 @@
             // 
             // floor
             // 
-            floor.BackColor = Color.ForestGreen;
-            floor.Location = new Point(-7, 451);
+            floor.BackColor = Color.Transparent;
+            floor.Location = new Point(-13, 356);
             floor.Name = "floor";
             floor.Size = new Size(872, 23);
             floor.TabIndex = 5;
             // 
             // obstacleC
             // 
+            obstacleC.BackColor = Color.Transparent;
             obstacleC.Image = Properties.Resources.spear;
-            obstacleC.Location = new Point(543, 82);
+            obstacleC.Location = new Point(503, 272);
             obstacleC.Name = "obstacleC";
             obstacleC.Size = new Size(98, 12);
             obstacleC.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -88,8 +91,9 @@
             // 
             // obstacleB
             // 
+            obstacleB.BackColor = Color.Transparent;
             obstacleB.Image = Properties.Resources.rockA;
-            obstacleB.Location = new Point(344, 420);
+            obstacleB.Location = new Point(359, 323);
             obstacleB.Name = "obstacleB";
             obstacleB.Size = new Size(50, 35);
             obstacleB.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -99,8 +103,9 @@
             // 
             // obstacleA
             // 
+            obstacleA.BackColor = Color.Transparent;
             obstacleA.Image = Properties.Resources.rockB;
-            obstacleA.Location = new Point(673, 410);
+            obstacleA.Location = new Point(634, 323);
             obstacleA.Name = "obstacleA";
             obstacleA.Size = new Size(60, 45);
             obstacleA.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -108,19 +113,33 @@
             obstacleA.TabStop = false;
             obstacleA.Tag = "obstacle";
             // 
+            // lblLevel
+            // 
+            lblLevel.AutoSize = true;
+            lblLevel.Font = new Font("Ubuntu Mono", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblLevel.Location = new Point(651, 423);
+            lblLevel.Name = "lblLevel";
+            lblLevel.Size = new Size(99, 20);
+            lblLevel.TabIndex = 9;
+            lblLevel.Text = "Level: 00";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.bgB;
             ClientSize = new Size(784, 461);
-            Controls.Add(obstacleA);
             Controls.Add(obstacleB);
-            Controls.Add(obstacleC);
+            Controls.Add(obstacleA);
             Controls.Add(floor);
+            Controls.Add(lblLevel);
+            Controls.Add(obstacleC);
             Controls.Add(PlayerA);
             Controls.Add(lblScore);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Form1";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Keshkeret";
             KeyDown += KeyIsDown;
             KeyUp += KeyIsUp;
             ((System.ComponentModel.ISupportInitialize)PlayerA).EndInit();
@@ -139,5 +158,6 @@
         private PictureBox obstacleC;
         private PictureBox obstacleB;
         private PictureBox obstacleA;
+        private Label lblLevel;
     }
 }

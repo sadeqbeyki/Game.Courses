@@ -4,14 +4,21 @@ namespace Game.MoveObstacle
 {
     public partial class Form1 : Form
     {
+        bool left, right;
+        bool up, down;
+        bool GameOver = false;
+
+        bool sit = false;
+
         bool jumping = false;
         int jumpSpeed = 10;
         int force = 12;
+
         int score = 0;
         int obstacleSpeed = 5;
-        Random rnd = new Random();
+        Random random = new Random();
         int position;
-        bool isGameOver = false;
+
 
         public Form1()
         {
@@ -21,6 +28,22 @@ namespace Game.MoveObstacle
 
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
+            if (left == true) { PlayerA.Left -= 5; }
+            if (right == true) { PlayerA.Left += 10; }
+            if (up == true) { PlayerA.Top -= 10; }
+            if (down == true) { PlayerA.Top += 10; }
+
+            if (sit == true)
+            {
+                PlayerA.Height = 50;
+                PlayerA.Width = 70;
+            }
+            else
+            {
+                PlayerA.Height = 82;
+                PlayerA.Width = 102;
+            }
+
             PlayerA.Top += jumpSpeed;
             lblScore.Text = "Score: " + score;
 
@@ -42,24 +65,18 @@ namespace Game.MoveObstacle
             {
                 if (x is PictureBox && (string)x.Tag == "obstacle")
                 {
-                     x.Left -= obstacleSpeed; // move the obstacles towards the left
-                    //if (x.Left + x.Width < 10)
-                    //{
-                    //    // if the obstacles have gone off the screen
-                    //    // then we respawn it off the far right
-                    //    // in this case we are calculating the form width and a random number between 200 and 800
-                    //    x.Left = this.ClientSize.Width + rnd.Next(200, 800) + (x.Width * 15);
-                    //    // we will add one to the score
-                    //    score++;
-                    //}
-                    // if the t rex collides with the obstacles
+                    x.Left -= obstacleSpeed;
+                    if (x.Left + x.Width < 50)
+                    {
+                        x.Left = this.ClientSize.Width + random.Next(600, 800) + (x.Width * 15);
+                        score++;
+                    }
+
                     if (PlayerA.Bounds.IntersectsWith(x.Bounds))
                     {
-                        // we stop the timer
+                        GameOver = true;
                         GameTimer.Stop();
-                        // change the t rex image to the dead one
                         PlayerA.Image = Properties.Resources.GameOver;
-                        // show press r to restart on the score text label
                         lblScore.Text += "  Press R to restart";
                     }
                 }
@@ -72,30 +89,54 @@ namespace Game.MoveObstacle
                 jumpSpeed = 0;
             }
 
-            //if (score >= 10)
-            //{
-            //    obstacleSpeed = 10;
-            //}
+            if (score >= 5)
+            {
+                obstacleSpeed = 8;
+                //lblLevel.Text =;
+            }
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.A) { left = true; }
+            if (e.KeyCode == Keys.D) { right = true; }
+
+            if (e.KeyCode == Keys.W) { up = true; }
+            if (e.KeyCode == Keys.S) { down = true; }
+
+            if (e.KeyCode == Keys.C) { sit = true; }
+
+            if (e.KeyCode == Keys.R && GameOver == true) { ResetGame(); }
+
             if (e.KeyCode == Keys.Space && !jumping)
             {
                 jumping = true;
             }
+
+            if (e.KeyCode == Keys.F1)
+            {
+                Help help = new();
+                help.ShowInTaskbar = false;
+                help.Show();
+            }
+
         }
 
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.A) { left = false; }
+            if (e.KeyCode == Keys.D) { right = false; }
+
+            if (e.KeyCode == Keys.W) { up = false; }
+            if (e.KeyCode == Keys.S) { down = false; }
+
+            if (e.KeyCode == Keys.C) { sit = false; }
+
+            if (e.KeyCode == Keys.R) { GameOver = false; }
+
             if (jumping)
             {
                 jumping = false;
-            }
-
-            if (e.KeyCode == Keys.R && isGameOver == true)
-            {
-                ResetGame();
             }
         }
 
@@ -105,16 +146,17 @@ namespace Game.MoveObstacle
             jumpSpeed = 0;
             jumping = false;
             score = 0;
-            obstacleSpeed = 10;
+            obstacleSpeed = 5;
             lblScore.Text = "Score: " + score;
             PlayerA.Image = Properties.Resources.PlayerA;
-            isGameOver = false;
+            GameOver = false;
             PlayerA.Top = floor.Top - PlayerA.Height;
+
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox && (string)x.Tag == "obstacle")
                 {
-                    position = this.ClientSize.Width + rnd.Next(10, 100) + (x.Width * 10);
+                    position = this.ClientSize.Width + random.Next(400, 600) + (x.Width * 10);
                     x.Left = position;
                 }
             }

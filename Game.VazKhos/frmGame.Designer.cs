@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            gameArea = new Panel();
+            GameArea = new Panel();
             lblScore = new Label();
             rockB = new PictureBox();
             rockA = new PictureBox();
             PlayerA = new PictureBox();
             GameTimer = new System.Windows.Forms.Timer(components);
-            label1 = new Label();
-            gameArea.SuspendLayout();
+            floor = new Label();
+            GameArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)rockB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rockA).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PlayerA).BeginInit();
             SuspendLayout();
             // 
-            // gameArea
+            // GameArea
             // 
-            gameArea.BackColor = Color.Transparent;
-            gameArea.Controls.Add(lblScore);
-            gameArea.Controls.Add(rockB);
-            gameArea.Controls.Add(rockA);
-            gameArea.Controls.Add(PlayerA);
-            gameArea.Location = new Point(12, 12);
-            gameArea.Name = "gameArea";
-            gameArea.Size = new Size(760, 540);
-            gameArea.TabIndex = 0;
+            GameArea.BackColor = Color.Transparent;
+            GameArea.Controls.Add(lblScore);
+            GameArea.Controls.Add(rockB);
+            GameArea.Controls.Add(rockA);
+            GameArea.Controls.Add(PlayerA);
+            GameArea.Location = new Point(12, 12);
+            GameArea.Name = "GameArea";
+            GameArea.Size = new Size(760, 540);
+            GameArea.TabIndex = 0;
             // 
             // lblScore
             // 
@@ -67,7 +67,7 @@
             // rockB
             // 
             rockB.Image = Properties.Resources.rockB;
-            rockB.Location = new Point(626, 465);
+            rockB.Location = new Point(580, 474);
             rockB.Name = "rockB";
             rockB.Size = new Size(100, 70);
             rockB.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -78,7 +78,7 @@
             // rockA
             // 
             rockA.Image = Properties.Resources.rockA;
-            rockA.Location = new Point(334, 485);
+            rockA.Location = new Point(335, 492);
             rockA.Name = "rockA";
             rockA.Size = new Size(66, 50);
             rockA.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -100,29 +100,29 @@
             // GameTimer
             // 
             GameTimer.Interval = 20;
-            GameTimer.Tick += gameTimer_Tick;
+            GameTimer.Tick += GameTimerEvent;
             // 
-            // label1
+            // floor
             // 
-            label1.BackColor = Color.ForestGreen;
-            label1.Location = new Point(-2, 550);
-            label1.Name = "label1";
-            label1.Size = new Size(793, 23);
-            label1.TabIndex = 1;
+            floor.BackColor = Color.ForestGreen;
+            floor.Location = new Point(-2, 550);
+            floor.Name = "floor";
+            floor.Size = new Size(793, 23);
+            floor.TabIndex = 1;
             // 
             // frmGame
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 561);
-            Controls.Add(label1);
-            Controls.Add(gameArea);
+            ClientSize = new Size(784, 568);
+            Controls.Add(floor);
+            Controls.Add(GameArea);
             Name = "frmGame";
             Text = "Vazism";
             KeyDown += KeyIsDown;
             KeyUp += KeyIsUp;
-            gameArea.ResumeLayout(false);
-            gameArea.PerformLayout();
+            GameArea.ResumeLayout(false);
+            GameArea.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)rockB).EndInit();
             ((System.ComponentModel.ISupportInitialize)rockA).EndInit();
             ((System.ComponentModel.ISupportInitialize)PlayerA).EndInit();
@@ -131,10 +131,10 @@
 
         #endregion
 
-        private Panel gameArea;
+        private Panel GameArea;
         private PictureBox PlayerA;
         private System.Windows.Forms.Timer GameTimer;
-        private Label label1;
+        private Label floor;
         private PictureBox rockA;
         private PictureBox rockB;
         private Label lblScore;

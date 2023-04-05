@@ -118,22 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="GameOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GameOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ufo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ufo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PlayerA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PlayerA.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ufoA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ufoA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="spear" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="runner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\runner.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rockB" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rockB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="spearUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spearUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rockA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rockA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ufoB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ufoB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bgB" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bgB.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="picDeadRunner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\picDeadRunner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ufoC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ufoC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barrierDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barrierDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ufo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ufo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

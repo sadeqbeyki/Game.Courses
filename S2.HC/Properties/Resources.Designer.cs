@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Game.MoveObstacle.Properties {
+namespace S2.HC.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Game.MoveObstacle.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Game.MoveObstacle.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("S2.HC.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace Game.MoveObstacle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bgB {
+        internal static System.Drawing.Bitmap barrierDown {
             get {
-                object obj = ResourceManager.GetObject("bgB", resourceCulture);
+                object obj = ResourceManager.GetObject("barrierDown", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Game.MoveObstacle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap GameOver {
+        internal static System.Drawing.Bitmap Bg {
             get {
-                object obj = ResourceManager.GetObject("GameOver", resourceCulture);
+                object obj = ResourceManager.GetObject("Bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Game.MoveObstacle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PlayerA {
+        internal static System.Drawing.Bitmap picDeadRunner {
             get {
-                object obj = ResourceManager.GetObject("PlayerA", resourceCulture);
+                object obj = ResourceManager.GetObject("picDeadRunner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Game.MoveObstacle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap rockA {
+        internal static System.Drawing.Bitmap runner {
             get {
-                object obj = ResourceManager.GetObject("rockA", resourceCulture);
+                object obj = ResourceManager.GetObject("runner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Game.MoveObstacle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap rockB {
+        internal static System.Drawing.Bitmap spearUp {
             get {
-                object obj = ResourceManager.GetObject("rockB", resourceCulture);
+                object obj = ResourceManager.GetObject("spearUp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,39 @@ namespace Game.MoveObstacle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap spear {
+        internal static System.Drawing.Bitmap ufo {
             get {
-                object obj = ResourceManager.GetObject("spear", resourceCulture);
+                object obj = ResourceManager.GetObject("ufo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ufoA {
+            get {
+                object obj = ResourceManager.GetObject("ufoA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ufoB {
+            get {
+                object obj = ResourceManager.GetObject("ufoB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ufoC {
+            get {
+                object obj = ResourceManager.GetObject("ufoC", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

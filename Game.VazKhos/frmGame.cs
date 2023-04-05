@@ -1,30 +1,26 @@
-
-
 namespace Game.VazKhos
 {
     public partial class frmGame : Form
     {
         bool left, right;
         bool up, down;
+        bool GameOver = false;
 
         bool jump = false;//trx
         int gravity = 20;
         int force = 12;//trex 
 
-        int jumpSpeed;
+        int jumpSpeed = 10;//trexC
 
         int score = 0;
         int obstacleSpeed = 10;
         Random rand = new();
         int position;
-        bool isGameOver = false;
 
         public frmGame()
         {
             InitializeComponent();
-            //trex
             GameReset();
-            //end trex
         }
 
 
@@ -35,6 +31,11 @@ namespace Game.VazKhos
 
             if (e.KeyCode == Keys.Up) { up = true; }
             if (e.KeyCode == Keys.Down) { down = true; }
+
+            if (e.KeyCode == Keys.R && GameOver == true)
+            {
+                GameReset();
+            }
 
             if (!jump)
             {
@@ -55,13 +56,36 @@ namespace Game.VazKhos
             if (e.KeyCode == Keys.Down) { down = false; }
 
             //trex
-            if (e.KeyCode == Keys.R && isGameOver == true)
+            if (e.KeyCode == Keys.R)
             {
-                GameReset();
+                GameOver = false;
             }
         }
 
-        private void gameTimer_Tick(object sender, EventArgs e)
+        private void GameReset()
+        {
+            force = 12;
+            jumpSpeed = 0;
+            jump = false;
+            score = 0;
+            obstacleSpeed = 10;
+            lblScore.Text = "Score: " + score;
+            PlayerA.Image = Properties.Resources.PlayerA;
+            GameOver = false;
+            PlayerA.Top = floor.Top - PlayerA.Height;
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is PictureBox)
+                {
+                    position = this.ClientSize.Width + rand.Next(400, 800) + (ctrl.Width * 10);
+                    ctrl.Left = position;
+                }
+            }
+            GameTimer.Start();
+        }
+
+        private void GameTimerEvent(object sender, EventArgs e)
         {
             if (right == true) { PlayerA.Left += 10; }
             if (left == true) { PlayerA.Left -= 5; }
@@ -92,72 +116,42 @@ namespace Game.VazKhos
             //}
             //end trex
 
-            //back to line
-            if (PlayerA.Top + PlayerA.Height >= gameArea.Height)
+            foreach (Control ctrl in this.Controls)
             {
-                PlayerA.Top = gameArea.Height - PlayerA.Height;
-                jump = false;
-                //trex
-                //jumpSpeed = 0;
-                //end trex
+                if (ctrl is PictureBox && (string)ctrl.Tag == "obstacle")
+                {
+                    ctrl.Left += obstacleSpeed;
+                    if (ctrl.Left + ctrl.Width < 120)
+                    {
+                        ctrl.Left = this.ClientSize.Width + rand.Next(600, 800) + ctrl.Width * 15;
+                        score++;
+                    }
 
+                    if (PlayerA.Bounds.IntersectsWith(ctrl.Bounds))
+                    {
+                        GameOver = true;
+                        GameTimer.Stop();
+                        PlayerA.Image = Properties.Resources.GameOver;
+                        lblScore.Text += " Press R to restart the game!";
+                    }
+                }
+            }
+
+            if (PlayerA.Top + PlayerA.Height >= GameArea.Height)
+            {
+                PlayerA.Top = GameArea.Height - PlayerA.Height;
+                jump = false;
+                jumpSpeed = 0;
             }
             else
             {
                 PlayerA.Top += 5;
             }
 
-            //trex
-
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is PictureBox && (string)ctrl.Tag == "obstacle")
-                {
-                    ctrl.Left -= obstacleSpeed;
-                    if (ctrl.Left < -100)
-                    {
-                        ctrl.Left = this.ClientSize.Width + rand.Next(10, 50) + ctrl.Width * 15;
-                        score++;
-                    }
-                    if (PlayerA.Bounds.IntersectsWith(ctrl.Bounds))
-                    {
-                        GameTimer.Stop();
-                        PlayerA.Image = Properties.Resources.GameOver;
-                        lblScore.Text += " Press R to restart the game!";
-                        isGameOver = true;
-                    }
-                }
-            }
             if (score >= 5)
             {
                 obstacleSpeed = 15;
             }
-
         }
-
-        //trex
-        private void GameReset()
-        {
-            force = 12;
-            jumpSpeed = 0;
-            jump = false;
-            score = 0;
-            obstacleSpeed = 10;
-            lblScore.Text = "Score: " + score;
-            PlayerA.Image = Properties.Resources.PlayerA;
-            isGameOver = false;
-            PlayerA.Top = 472;
-
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is PictureBox && (string)ctrl.Tag == "obstacle")
-                {
-                    position = this.ClientSize.Width + rand.Next(10, 100) + (ctrl.Width * 10);
-                    ctrl.Left = position;
-                }
-            }
-            GameTimer.Start();
-        }
-
     }
 }
