@@ -7,9 +7,9 @@ namespace Game.VazKhos
         bool left, right;
         bool up, down;
 
-        bool jump;
+        bool jump = false;//trx
         int gravity = 20;
-        int force; 
+        int force = 12;//trex 
 
         int jumpSpeed;
 
@@ -121,7 +121,7 @@ namespace Game.VazKhos
                     }
                     if (PlayerA.Bounds.IntersectsWith(ctrl.Bounds))
                     {
-                        gameTimer.Stop();
+                        GameTimer.Stop();
                         PlayerA.Image = Properties.Resources.GameOver;
                         lblScore.Text += " Press R to restart the game!";
                         isGameOver = true;
@@ -156,7 +156,7 @@ namespace Game.VazKhos
                     ctrl.Left = position;
                 }
             }
-            gameTimer.Start();
+            GameTimer.Start();
         }
 
     }

@@ -34,7 +34,7 @@
             rockB = new PictureBox();
             rockA = new PictureBox();
             PlayerA = new PictureBox();
-            gameTimer = new System.Windows.Forms.Timer(components);
+            GameTimer = new System.Windows.Forms.Timer(components);
             label1 = new Label();
             gameArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)rockB).BeginInit();
@@ -97,11 +97,10 @@
             PlayerA.TabIndex = 0;
             PlayerA.TabStop = false;
             // 
-            // gameTimer
+            // GameTimer
             // 
-            gameTimer.Enabled = true;
-            gameTimer.Interval = 20;
-            gameTimer.Tick += gameTimer_Tick;
+            GameTimer.Interval = 20;
+            GameTimer.Tick += gameTimer_Tick;
             // 
             // label1
             // 
@@ -134,7 +133,7 @@
 
         private Panel gameArea;
         private PictureBox PlayerA;
-        private System.Windows.Forms.Timer gameTimer;
+        private System.Windows.Forms.Timer GameTimer;
         private Label label1;
         private PictureBox rockA;
         private PictureBox rockB;
