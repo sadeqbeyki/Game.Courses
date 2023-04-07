@@ -23,6 +23,7 @@ namespace Game.MoveObstacle
         public Form1()
         {
             InitializeComponent();
+            MessageBox.Show("whats your name? ");
             ResetGame();
         }
 
